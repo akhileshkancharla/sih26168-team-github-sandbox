@@ -1,0 +1,67 @@
+name: Training task
+description: Assign a bounded sandbox mission
+title: "[MISSION] "
+labels: ["training"]
+body:
+  - type: markdown
+    attributes:
+      value: "Complete only the specified scope. Ask questions before changing the design."
+  - type: input
+    id: assignee
+    attributes:
+      label: Assigned contributor
+      placeholder: "@username"
+    validations:
+      required: true
+  - type: input
+    id: reviewer
+    attributes:
+      label: Assigned lead reviewer
+      placeholder: "@lead"
+    validations:
+      required: true
+  - type: input
+    id: branch
+    attributes:
+      label: Required branch name
+      placeholder: "training/123-short-description"
+    validations:
+      required: true
+  - type: textarea
+    id: allowed
+    attributes:
+      label: Allowed files
+      description: List exact paths.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Required steps
+    validations:
+      required: true
+  - type: textarea
+    id: verification
+    attributes:
+      label: Verification commands
+      render: shell
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance criteria
+      value: |
+        - [ ] Exact requested output is produced
+        - [ ] Required tests pass locally
+        - [ ] GitHub CI passes
+        - [ ] Pull request links this issue
+        - [ ] Only allowed files changed
+    validations:
+      required: true
+  - type: textarea
+    id: out_of_scope
+    attributes:
+      label: Explicitly out of scope
+    validations:
+      required: true
